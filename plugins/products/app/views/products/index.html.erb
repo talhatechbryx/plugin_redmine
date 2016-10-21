@@ -1,0 +1,16 @@
+<%= link_to "Add Product", new_product_path %>
+<% if @products.present? %>
+	<h2>Listing All Products</h2>
+
+	<% @products.each do |product| %>
+		<label> <b>Name:</b> <%= link_to product.name, product_path(id: product.id)%>
+		</label>
+		<br>
+		<p><b>Description:</b><%= product.description %></p>
+		<p><b>Active:</b><%= product.active %></p>
+		<%= link_to "Solutions(#{product.solutions.count})", solutions_path(id: product.id) %>
+		<hr></hr>
+	<% end %>
+<% else %>
+	<h3>No Products Found</h3>
+<% end %>

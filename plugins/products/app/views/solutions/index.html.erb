@@ -1,0 +1,19 @@
+<% if @solutions.present? %>
+	<h2>Solutions</h2>
+
+	<% @solutions.each do |solution| %>
+		<label>
+	  <h4>
+		Title: <%= solution.name %></h4>
+		</label>
+	  <p> <%= solution.description %> </p>
+	  <label>
+	  <h4>Product Title: <%= solution.product.name %></h4> 
+	  </label>
+	  <hr>
+	<% end %>
+	<%= link_to "Provide Solution", new_solution_path(id: @product.id) %>
+<% else %>
+	<%= link_to "Provide Solution", new_solution_path(id: @product.id) %>
+	<h3>No Solutions Found</h3>
+<% end %>
